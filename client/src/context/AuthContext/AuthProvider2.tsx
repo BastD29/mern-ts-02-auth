@@ -11,6 +11,8 @@ type AuthProviderProps = {
 export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   const [state, dispatch] = useReducer(authReducer, initialAuthState);
 
+  console.log("initialAuthState:", state);
+
   useEffect(() => {
     const fetchProfile = async () => {
       if (state.token) {
