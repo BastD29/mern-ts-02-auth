@@ -11,7 +11,11 @@ const PrivateRoute: FC<PrivateRouteProps> = ({ children }) => {
 
   console.log("state.user:", state.user);
 
-  if (!state.isAuthenticated) {
+  // if (!state.isAuthenticated) {
+  //   return <Navigate to="/signin" />;
+  // }
+
+  if (!state.token) {
     return <Navigate to="/signin" />;
   }
 

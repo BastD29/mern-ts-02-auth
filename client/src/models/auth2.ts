@@ -1,7 +1,7 @@
 import { UserType } from "./user";
 
 type AuthStateType = {
-  isAuthenticated: boolean;
+  // isAuthenticated: boolean;
   user: Omit<UserType, "password"> | null;
   token: string | null;
 };

@@ -25,7 +25,12 @@ const allowedOrigins = [
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
-    if (allowedOrigins.includes(origin!)) {
+    // if (allowedOrigins.includes(origin!)) {
+    if (
+      !origin ||
+      origin.includes("Postman") ||
+      allowedOrigins.includes(origin)
+    ) {
       callback(null, true);
     } else {
       callback(new Error("Not allowed by CORS"));

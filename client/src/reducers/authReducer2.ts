@@ -10,7 +10,7 @@ import { AuthStateType } from "../models/auth2";
 // };
 
 const initialAuthState: AuthStateType = {
-  isAuthenticated: !!localStorage.getItem("token"),
+  // isAuthenticated: !!localStorage.getItem("token"),
   user: null,
   token: localStorage.getItem("token"),
 };
@@ -23,14 +23,14 @@ const authReducer = (
     case LOGIN:
       return {
         ...state,
-        isAuthenticated: true,
+        // isAuthenticated: true,
         token: action.payload.token,
         user: action.payload.user,
       };
     case LOGOUT:
       return {
         ...state,
-        isAuthenticated: false,
+        // isAuthenticated: false,
         token: null,
         user: null,
       };

@@ -19,11 +19,17 @@ const Home: FC = () => {
   };
 
   // prevents access to Home page if user is already logged in
-  useEffect(() => {
-    if (state.isAuthenticated) {
-      navigate("/dashboard");
-    }
-  }, [state.isAuthenticated, []]);
+  // useEffect(() => {
+  //   if (state.isAuthenticated) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [state.isAuthenticated, []]);
+
+  // useEffect(() => {
+  //   if (state.token) {
+  //     navigate("/dashboard");
+  //   }
+  // }, [state.token, []]);
 
   return (
     <div className={style["home"]}>

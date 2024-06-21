@@ -2,8 +2,8 @@ import { ChangeEvent, FC, FormEvent, useState } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { register } from "../../services/auth2";
 import { useNavigate } from "react-router-dom";
-import style from "./SignUp.module.scss";
 import { LOGIN } from "../../constants/actions";
+import style from "./SignUp.module.scss";
 
 type FormDataType = {
   name: string;
@@ -26,14 +26,14 @@ const SignUp: FC = () => {
 
     try {
       const response = await register(formData);
-      if (response) {
+      if (response?.token) {
         localStorage.setItem("token", response.token);
         dispatch({
           type: LOGIN,
           payload: { token: response.token, user: response.user },
         });
+        navigate("/dashboard");
       }
-      navigate("/dashboard");
     } catch (error) {
       setError("Invalid email or password");
       console.error("Registration failed", error);
