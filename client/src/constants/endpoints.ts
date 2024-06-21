@@ -1,4 +1,5 @@
-const BASE_URL = "http://localhost:3000/api";
+// const BASE_URL = "http://localhost:3000/api";
+const BASE_URL = "https://mern-ts-auth.onrender.com/api";
 
 const AUTH = "/auth";
 
