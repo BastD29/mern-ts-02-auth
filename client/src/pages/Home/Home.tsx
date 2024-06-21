@@ -25,11 +25,11 @@ const Home: FC = () => {
   //   }
   // }, [state.isAuthenticated, []]);
 
-  // useEffect(() => {
-  //   if (state.token) {
-  //     navigate("/dashboard");
-  //   }
-  // }, [state.token, []]);
+  useEffect(() => {
+    if (state.token) {
+      navigate("/dashboard");
+    }
+  }, [state.token, []]);
 
   return (
     <div className={style["home"]}>

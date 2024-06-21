@@ -17,9 +17,9 @@ const Dashboard: FC = () => {
     }
   };
 
-  if (!state.user) {
-    return <p>Loading...</p>;
-  }
+  // if (!state.user) {
+  //   return <p>Loading...</p>;
+  // }
 
   return (
     <div className={style["dashboard"]}>
