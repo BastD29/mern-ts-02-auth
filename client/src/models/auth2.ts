@@ -9,6 +9,7 @@ type AuthStateType = {
 type AuthResponseType = {
   token: string;
   user: Omit<UserType, "password">;
+  error: string;
 };
 
 export type { AuthStateType, AuthResponseType };

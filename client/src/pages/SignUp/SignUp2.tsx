@@ -33,9 +33,11 @@ const SignUp: FC = () => {
           payload: { token: response.token, user: response.user },
         });
         navigate("/dashboard");
+      } else if (response?.error) {
+        setError(response.error);
       }
     } catch (error) {
-      setError("Invalid email or password");
+      setError("User with that email already exists.");
       console.error("Registration failed", error);
     }
   };
