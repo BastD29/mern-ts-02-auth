@@ -34,6 +34,7 @@ const SignIn: FC = () => {
       }
       navigate("/dashboard");
     } catch (error) {
+      setError("Invalid email or password");
       console.error("Login failed", error);
     }
   };

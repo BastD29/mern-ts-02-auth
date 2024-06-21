@@ -35,6 +35,7 @@ const SignUp: FC = () => {
       }
       navigate("/dashboard");
     } catch (error) {
+      setError("Invalid email or password");
       console.error("Registration failed", error);
     }
   };
