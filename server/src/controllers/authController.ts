@@ -31,7 +31,9 @@ export const loginUser = async (user: Partial<IUser>) => {
   }
   const existingUser = await User.findByCredentials(email, password);
   if (!existingUser) {
-    return null;
+    return {
+      error: "Invalid email or password.",
+    };
   }
   const token = await existingUser.generateAuthToken();
   return {
