@@ -12,27 +12,26 @@ type FormDataType = {
 
 const SignIn: FC = () => {
   const navigate = useNavigate();
+  const { dispatch } = useAuthContext();
   const [formData, setFormData] = useState<FormDataType>({
     email: "",
     password: "",
   });
   const [error, setError] = useState<string>("");
 
-  const { dispatch } = useAuthContext();
-
   const handleSubmit = async (event: FormEvent) => {
     event.preventDefault();
 
     try {
       const response = await login(formData);
-      if (response) {
+      if (response?.token) {
         localStorage.setItem("token", response.token);
         dispatch({
           type: LOGIN,
           payload: { token: response.token, user: response.user },
         });
+        navigate("/dashboard");
       }
-      navigate("/dashboard");
     } catch (error) {
       setError("Invalid email or password");
       console.error("Login failed", error);
