@@ -1,15 +1,24 @@
+// AUTH
+
 const LOGIN = "LOGIN";
 const LOGOUT = "LOGOUT";
 const SET_USER = "SET_USER";
-// const REGISTER = "REGISTER";
-// const SIGNUP = "SIGNUP";
-// const RESET_PASSWORD = "RESET_PASSWORD";
+
+// POSTS
+
+const SET_POSTS = "SET_POSTS";
+const CREATE_POST = "CREATE_POST";
+const UPDATE_POST = "UPDATE_POST";
+const DELETE_POST = "DELETE_POST";
 
 export {
+  // AUTH
   LOGIN,
   LOGOUT,
   SET_USER,
-  /* RESET_PASSWORD */
-  /* REGISTER, */
-  /* SIGNUP, */
+  // POSTS
+  SET_POSTS,
+  CREATE_POST,
+  UPDATE_POST,
+  DELETE_POST,
 };
