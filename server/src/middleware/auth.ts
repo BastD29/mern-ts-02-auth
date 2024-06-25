@@ -14,6 +14,8 @@ interface DecodedToken {
 const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
   try {
     const token = req.header("Authorization")?.replace("Bearer ", "");
+    console.log("token:", token);
+
     if (!token) {
       throw new Error("Authentication failed. Token missing.");
     }
@@ -22,6 +24,9 @@ const auth = async (req: CustomRequest, res: Response, next: NextFunction) => {
       token,
       process.env.JWT_KEY as string
     ) as DecodedToken;
+
+    console.log("decoded:", decoded);
+
     const user = await User.findOne({
       _id: decoded._id,
       "tokens.token": token,

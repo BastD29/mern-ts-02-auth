@@ -16,6 +16,8 @@ export const registerUser = async (user: Partial<IUser>) => {
   const newUser = new User({ name, email, password });
   await newUser.save();
   const token = await newUser.generateAuthToken();
+  console.log("token:", token);
+
   return {
     user: newUser,
     token,
@@ -36,6 +38,8 @@ export const loginUser = async (user: Partial<IUser>) => {
     };
   }
   const token = await existingUser.generateAuthToken();
+  console.log("token:", token);
+
   return {
     user: existingUser,
     token,

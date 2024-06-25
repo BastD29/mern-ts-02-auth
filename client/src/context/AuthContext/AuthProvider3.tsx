@@ -17,6 +17,7 @@ export const AuthProvider: FC<AuthProviderProps> = ({ children }) => {
   useEffect(() => {
     const fetchProfile = async () => {
       if (state.token) {
+        console.log("isTokenExpired:", isTokenExpired(state.token));
         if (isTokenExpired(state.token)) {
           localStorage.removeItem("token");
           dispatch({ type: LOGOUT });
