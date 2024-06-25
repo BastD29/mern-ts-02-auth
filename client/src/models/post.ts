@@ -2,6 +2,7 @@ import { UserType } from "./user";
 
 type PostStateType = {
   posts: PostType[] | null;
+  // posts: PostType[];
 };
 
 type PostType = {

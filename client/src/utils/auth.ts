@@ -8,7 +8,7 @@ const isTokenExpired = (token: string): boolean => {
 
   try {
     const decodedToken: { exp?: number } = jwtDecode(token);
-    console.log("decodedToken:", decodedToken);
+    // console.log("decodedToken:", decodedToken);
 
     if (!decodedToken || typeof decodedToken.exp !== "number") {
       return true;

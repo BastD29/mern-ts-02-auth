@@ -31,7 +31,8 @@ const SignIn: FC = () => {
           payload: { token: response.token, user: response.user },
         });
         // navigate("/dashboard");
-        navigate("/");
+        // navigate("/");
+        navigate("/posts");
       } else if (response?.error) {
         setError(response.error);
       }

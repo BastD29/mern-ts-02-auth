@@ -9,6 +9,7 @@ import { PostStateType } from "../models/post";
 
 const initialPostState: PostStateType = {
   posts: null,
+  // posts: [],
 };
 
 const postReducer = (
