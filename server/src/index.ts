@@ -5,18 +5,13 @@ import connectDB from "./config/db";
 import express from "express";
 import cors from "cors";
 import authRoutes from "./routes/authRoutes";
+import postRoutes from "./routes/postRoutes";
 
 connectDB();
 
 const port = process.env.PORT || 3000;
 
 const app = express();
-
-// app.use(
-//   cors({
-//     origin: "http://localhost:5173",
-//   })
-// );
 
 const allowedOrigins = [
   "http://localhost:5173",
@@ -25,7 +20,6 @@ const allowedOrigins = [
 
 const corsOptions: cors.CorsOptions = {
   origin: (origin, callback) => {
-    // if (allowedOrigins.includes(origin!)) {
     if (
       !origin ||
       origin.includes("Postman") ||
@@ -44,5 +38,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 
 app.use("/api/auth", authRoutes);
+app.use("/api/posts", postRoutes);
 
 app.listen(port, () => console.log(`Server started on port ${port}`));
