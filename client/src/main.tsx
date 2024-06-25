@@ -1,6 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
-import App from "./components/App/App.tsx";
+import App from "./components/App/App2.tsx";
 import { BrowserRouter } from "react-router-dom";
 import { AuthProvider } from "./context/AuthContext/AuthProvider3.tsx";
 import { PostProvider } from "./context/PostContext/PostProvider.tsx";

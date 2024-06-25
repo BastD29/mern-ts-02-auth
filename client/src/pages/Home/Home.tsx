@@ -1,56 +1,49 @@
-import { FC, useEffect } from "react";
-import { NavLink, Outlet, useNavigate } from "react-router-dom";
-import { useAuthContext } from "../../hooks/useAuthContext";
-import style from "./Home.module.scss";
+// import { FC, useEffect } from "react";
+// import { NavLink, Outlet, useNavigate } from "react-router-dom";
+// import { useAuthContext } from "../../hooks/useAuthContext";
+// import style from "./Home.module.scss";
 
-const Home: FC = () => {
-  const navigate = useNavigate();
-  const { state } = useAuthContext();
+// const Home: FC = () => {
+//   const navigate = useNavigate();
+//   const { state } = useAuthContext();
 
-  const renderHeading = () => {
-    switch (location.pathname) {
-      case "/signin":
-        return "Already have an account? Please sign in";
-      case "/signup":
-        return "Don't have an account yet? Please register";
-      default:
-        return "Welcome, please connect";
-    }
-  };
+//   const renderHeading = () => {
+//     switch (location.pathname) {
+//       case "/signin":
+//         return "Already have an account? Please sign in";
+//       case "/signup":
+//         return "Don't have an account yet? Please register";
+//       default:
+//         return "Welcome, please connect";
+//     }
+//   };
 
-  // prevents access to Home page if user is already logged in
-  // useEffect(() => {
-  //   if (state.isAuthenticated) {
-  //     navigate("/dashboard");
-  //   }
-  // }, [state.isAuthenticated, []]);
+//   useEffect(() => {
+//     if (state.token) {
+//       navigate("/dashboard");
+//     }
+//   }, [state.token, []]);
 
-  useEffect(() => {
-    if (state.token) {
-      navigate("/dashboard");
-    }
-  }, [state.token, []]);
+//   return (
+//     <div className={style["home"]}>
+//       <h2>{renderHeading()}</h2>
+//       <nav className={style["home__nav"]}>
+//         <NavLink
+//           to="/signin"
+//           className={({ isActive }) => (isActive ? style["active"] : "")}
+//         >
+//           Sign in
+//         </NavLink>
+//         <NavLink
+//           to="/signup"
+//           className={({ isActive }) => (isActive ? style["active"] : "")}
+//         >
+//           Sign up
+//         </NavLink>
+//       </nav>
+//       <Outlet />
+//     </div>
+//   );
+// };
 
-  return (
-    <div className={style["home"]}>
-      <h2>{renderHeading()}</h2>
-      <nav className={style["home__nav"]}>
-        <NavLink
-          to="/signin"
-          className={({ isActive }) => (isActive ? style["active"] : "")}
-        >
-          Sign in
-        </NavLink>
-        <NavLink
-          to="/signup"
-          className={({ isActive }) => (isActive ? style["active"] : "")}
-        >
-          Sign up
-        </NavLink>
-      </nav>
-      <Outlet />
-    </div>
-  );
-};
-
-export default Home;
+// export default Home;

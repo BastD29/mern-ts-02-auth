@@ -32,7 +32,8 @@ const SignUp: FC = () => {
           type: LOGIN,
           payload: { token: response.token, user: response.user },
         });
-        navigate("/dashboard");
+        // navigate("/dashboard");
+        navigate("/");
       } else if (response?.error) {
         setError(response.error);
       }

@@ -2,6 +2,7 @@ import { FC } from "react";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import { logout } from "../../services/auth2";
 import { LOGOUT } from "../../constants/actions";
+import { NavLink } from "react-router-dom";
 import style from "./Header.module.scss";
 
 const Header: FC = () => {
@@ -17,6 +18,21 @@ const Header: FC = () => {
 
   return (
     <header className={style["header"]}>
+      <nav className={style["header__nav"]}>
+        <NavLink
+          to="/auth/signin"
+          className={({ isActive }) => (isActive ? style["active"] : "")}
+        >
+          Sign in
+        </NavLink>
+        <NavLink
+          to="/auth/signup"
+          className={({ isActive }) => (isActive ? style["active"] : "")}
+        >
+          Sign up
+        </NavLink>
+      </nav>
+
       {state.user && (
         <div className={style["header__profile"]}>
           <p>Welcome, {state.user.email}</p>
