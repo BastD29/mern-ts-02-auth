@@ -42,7 +42,7 @@ userSchema.methods.generateAuthToken = async function () {
     process.env.JWT_KEY as string,
     { expiresIn: "30s" }
   );
-  console.log("token:", token);
+  // console.log("token:", token);
 
   user.tokens = user.tokens.concat({ token });
   await user.save();
