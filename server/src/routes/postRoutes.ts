@@ -4,14 +4,14 @@ import {
   deletePost,
   getPosts,
   updatePost,
-} from "../controllers/postController";
+} from "../controllers/postController2";
 import auth from "../middleware/auth";
 
 const router = express.Router();
 
-router.get("/posts", auth, getPosts);
-router.post("/posts", auth, createPost);
-router.put("/posts/:id", auth, updatePost);
-router.delete("/posts/:id", auth, deletePost);
+router.get("/", auth, getPosts);
+router.post("/", auth, createPost);
+router.put("/:id", auth, updatePost);
+router.delete("/:id", auth, deletePost);
 
 export default router;

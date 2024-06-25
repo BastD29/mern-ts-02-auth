@@ -1,0 +1,17 @@
+.header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 24px;
+  background-color: lightgray;
+
+  &__profile {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    // justify-content: space-between;
+    gap: 10px;
+  }
+}
