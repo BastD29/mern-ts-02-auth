@@ -1,10 +1,11 @@
 import { FC, useEffect, useState } from "react";
 import { usePostContext } from "../../hooks/usePostContext";
-import style from "./PostList.module.scss";
 import { getPosts } from "../../services/posts2";
 import { SET_POSTS } from "../../constants/actions";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import PostItem from "../PostItem/PostItem";
+import style from "./PostList.module.scss";
+import { isTokenExpired } from "../../utils/auth";
 
 const PostList: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
@@ -23,20 +24,19 @@ const PostList: FC = () => {
 
   useEffect(() => {
     const fetchPosts = async () => {
-      if (!token) {
+      // prevents getPosts being called uselessly if no token
+      if (!token || isTokenExpired(token)) {
         setIsLoading(false);
         return;
       }
       setIsLoading(true);
 
       try {
-        if (token) {
-          const response = await getPosts(token);
-          if (response) {
-            dispatch({ type: SET_POSTS, payload: response });
-          } else {
-            setError("Failed to fetch posts");
-          }
+        const response = await getPosts(token);
+        if (response) {
+          dispatch({ type: SET_POSTS, payload: response });
+        } else {
+          setError("Failed to fetch posts");
         }
       } catch (error) {
         setError("Failed to fetch posts");
