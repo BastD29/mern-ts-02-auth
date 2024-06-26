@@ -81,12 +81,13 @@ const updatePost = async (
   }
 };
 
-const deletePost = async (postId: string): Promise<void> => {
+const deletePost = async (postId: string, token: string): Promise<void> => {
   try {
-    const response = await fetch(`${BASE_URL}${POSTS}${postId}`, {
+    const response = await fetch(`${BASE_URL}${POSTS}/${postId}`, {
       method: "DELETE",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
     });
     const data = await response.json();
