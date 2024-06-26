@@ -1,2 +1,21 @@
 .post-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  border: solid 1px black;
+  border-radius: 5px;
+  padding: 10px;
+
+  &__info {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__buttons {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    gap: 10px;
+  }
 }

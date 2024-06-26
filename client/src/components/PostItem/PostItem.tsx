@@ -9,8 +9,14 @@ type PostItemProps = {
 const PostItem: FC<PostItemProps> = ({ post }) => {
   return (
     <div className={style["post-item"]}>
-      <h3>{post.title}</h3>
-      <p>{post.description}</p>
+      <div className={style["post-item__info"]}>
+        <h3>{post.title}</h3>
+        <p>{post.description}</p>
+      </div>
+      <div className={style["post-item__buttons"]}>
+        <button>Update</button>
+        <button>Delete</button>
+      </div>
     </div>
   );
 };

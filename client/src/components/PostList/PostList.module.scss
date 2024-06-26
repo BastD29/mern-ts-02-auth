@@ -5,6 +5,12 @@
   flex-direction: column;
   gap: 10px;
 
+  ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+  }
+
   button {
     width: fit-content;
   }
