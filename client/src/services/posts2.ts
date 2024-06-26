@@ -25,13 +25,15 @@ const getPosts = async (token: string): Promise<PostType[] | undefined> => {
 };
 
 const createPost = async (
-  postData: PostType
+  postData: PostType,
+  token: string
 ): Promise<PostType | undefined> => {
   try {
     const response = await fetch(`${BASE_URL}${POSTS}`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(postData),
     });

@@ -4,12 +4,15 @@ import { getPosts } from "../../services/posts2";
 import { SET_POSTS } from "../../constants/actions";
 import { useAuthContext } from "../../hooks/useAuthContext";
 import PostItem from "../PostItem/PostItem";
-import style from "./PostList.module.scss";
 import { isTokenExpired } from "../../utils/auth";
+import { useNavigate } from "react-router-dom";
+import style from "./PostList.module.scss";
 
 const PostList: FC = () => {
   const [isLoading, setIsLoading] = useState<boolean>(true);
   const [error, setError] = useState<string | null>(null);
+
+  const navigate = useNavigate();
 
   const {
     state: { posts },
@@ -21,6 +24,10 @@ const PostList: FC = () => {
   } = useAuthContext();
 
   console.log("posts:", posts);
+
+  const handleClick = () => {
+    navigate("/posts/new");
+  };
 
   useEffect(() => {
     const fetchPosts = async () => {
@@ -52,6 +59,7 @@ const PostList: FC = () => {
     <div className={style["post-list"]}>
       {isLoading && <p>Loading...</p>}
       {error && <p>{error}</p>}
+      <button onClick={handleClick}>New post</button>
       {!isLoading && !error && posts && posts.length > 0 && (
         <ul>
           {posts.map((post) => (

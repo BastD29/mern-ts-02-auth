@@ -12,11 +12,6 @@ const getPosts = async (req: CustomRequest, res: Response) => {
 };
 
 const createPost = async (req: CustomRequest, res: Response) => {
-  // if (!req.body.title || !req.body.description) {
-  //   return res
-  //     .status(400)
-  //     .json({ error: "Title and description are required." });
-  // }
   try {
     const post = await Post.create({
       title: req.body.title,

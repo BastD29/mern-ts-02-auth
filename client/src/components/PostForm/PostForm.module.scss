@@ -1,0 +1,12 @@
+.post-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  max-width: 500px;
+  padding: 24px;
+}
+
+.error {
+  color: red;
+}
