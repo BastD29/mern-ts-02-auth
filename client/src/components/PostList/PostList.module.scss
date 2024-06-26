@@ -5,6 +5,13 @@
   flex-direction: column;
   gap: 10px;
 
+  &__new-post {
+    font-size: 20px;
+    width: fit-content;
+    background-color: grey;
+    padding: 5px;
+  }
+
   ul {
     display: grid;
     grid-template-columns: repeat(3, 1fr);

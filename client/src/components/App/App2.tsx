@@ -4,7 +4,7 @@ import SignUp from "../../pages/SignUp/SignUp2";
 import DashboardLayout from "../layouts/DashboardLayout/DashboardLayout";
 import AuthLayout from "../layouts/AuthLayout/AuthLayout";
 import PostList from "../PostList/PostList";
-import PostForm from "../PostForm/PostForm";
+import PostForm from "../PostForm/PostForm2";
 
 export default function App() {
   return (
@@ -12,6 +12,7 @@ export default function App() {
       <Route path="/" element={<DashboardLayout />}>
         <Route path="posts" element={<PostList />} />
         <Route path="posts/new" element={<PostForm />} />
+        <Route path="posts/edit/:id" element={<PostForm />} />
       </Route>
 
       <Route path="/auth" element={<AuthLayout />}>

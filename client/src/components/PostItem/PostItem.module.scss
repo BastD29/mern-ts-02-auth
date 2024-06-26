@@ -18,4 +18,9 @@
     align-items: center;
     gap: 10px;
   }
+
+  &__delete {
+    background-color: grey;
+    padding: 5px;
+  }
 }

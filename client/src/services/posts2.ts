@@ -53,14 +53,16 @@ const createPost = async (
 };
 
 const updatePost = async (
+  postId: string,
   postData: PostType,
-  postId: string
+  token: string
 ): Promise<PostType | undefined> => {
   try {
-    const response = await fetch(`${BASE_URL}${POSTS}${postId}`, {
+    const response = await fetch(`${BASE_URL}${POSTS}/${postId}`, {
       method: "PUT",
       headers: {
         "Content-Type": "application/json",
+        Authorization: `Bearer ${token}`,
       },
       body: JSON.stringify(postData),
     });
