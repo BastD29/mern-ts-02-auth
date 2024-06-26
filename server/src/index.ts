@@ -15,7 +15,8 @@ const app = express();
 
 const allowedOrigins = [
   "http://localhost:5173",
-  "https://mern-ts-auth.netlify.app",
+  // "https://mern-ts-auth.netlify.app",
+  "https://mern-ts-token-based-auth-with-crud.netlify.app",
 ];
 
 const corsOptions: cors.CorsOptions = {
